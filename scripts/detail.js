@@ -2,6 +2,18 @@ import { initialSetup } from "./index.js";
 
 initialSetup();
 
+function trim_words(theString, numWords) {
+  const expString = theString.split(/\s+/, numWords);
+  const theNewString = expString.join(" ");
+  return theNewString;
+}
+
+function get_remain_string(theString, numWords) {
+  const trimmedString = trim_words(theString, numWords);
+  const remainString = theString.slice(trimmedString.length).trim();
+  return remainString;
+}
+
 const titleEl = document.getElementById("title");
 const descriptionEl = document.getElementById("shortText");
 const moreTextEl = document.getElementById("moreText");
@@ -26,8 +38,11 @@ const render = async () => {
   const data = await getDetail(id);
 
   titleEl.innerHTML = data.title.romaji;
-  descriptionEl.innerHTML = data.description.substr(0, 256);
-  moreTextEl.innerHTML = data.description.substr(256);
+  const fullText = data.description;
+  const maxWords = 50;
+  const trimmedString = trim_words(fullText, maxWords);
+  descriptionEl.innerHTML = trimmedString;
+  moreTextEl.innerHTML = get_remain_string(fullText, maxWords);
   bannerImageEl.setAttribute("src", data.bannerImage);
   coverImageEl.setAttribute("src", data.coverImage);
 
