@@ -59,7 +59,9 @@
           >
         </div>
         <p id="description" class="my-4 text-base text-gray-300">
-          <span id="moreText"></span>
+          <span id="shortText"></span>
+          <span id="points">...</span>
+          <span id="moreText" style="display: none"></span>
         </p>
         <button
           onclick="toggleText()"
@@ -75,5 +77,23 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     <script src="./scripts/detail.js" type="module"></script>
+    <script>
+      function toggleText() {
+        const points = document.getElementById("points");
+        const showMoreText = document.getElementById("moreText");
+        const buttonText = document.getElementById("textButton");
+        if (points.style.display === "none") {
+          showMoreText.style.display = "none";
+          points.style.display = "inline";
+          buttonText.innerHTML = "Show More";
+        } else {
+          showMoreText.style.display = "inline";
+
+          points.style.display = "none";
+
+          buttonText.innerHTML = "Show Less";
+        }
+      }
+    </script>
   </body>
 </html>

@@ -7,10 +7,10 @@ export const footer = `
       </span>
       <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-          <a href="https://github.com/nuraskiah/anibox" target="_blank" class="mr-4 hover:underline md:mr-6">Github</a>
+          <a href="https://github.com/Shazoji90" target="_blank" class="mr-4 hover:underline md:mr-6">Github</a>
         </li>
         <li>
-          <a href="https://airtable.com/shrRgvyiYdb76BAMt" target="_blank" class="mr-4 hover:underline md:mr-6">Submit</a>
+          <a href="#" target="_blank" class="mr-4 hover:underline md:mr-6">Submit</a>
         </li>
       </ul>
     </div>

@@ -3,7 +3,8 @@ import { initialSetup } from "./index.js";
 initialSetup();
 
 const titleEl = document.getElementById("title");
-const descriptionEl = document.getElementById("description");
+const descriptionEl = document.getElementById("shortText");
+const moreTextEl = document.getElementById("moreText");
 const bannerImageEl = document.getElementById("banner-image");
 const coverImageEl = document.getElementById("cover-image");
 const infoEl = document.getElementById("info");
@@ -25,7 +26,8 @@ const render = async () => {
   const data = await getDetail(id);
 
   titleEl.innerHTML = data.title.romaji;
-  descriptionEl.innerHTML = data.description.substr(0, 256) + "...";
+  descriptionEl.innerHTML = data.description.substr(0, 256);
+  moreTextEl.innerHTML = data.description.substr(256);
   bannerImageEl.setAttribute("src", data.bannerImage);
   coverImageEl.setAttribute("src", data.coverImage);
 
