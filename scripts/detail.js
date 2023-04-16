@@ -1,4 +1,4 @@
-import { initialSetup } from "./index.js";
+import { ApiUrl, initialSetup } from "./index.js";
 
 initialSetup();
 
@@ -27,7 +27,7 @@ const id = urlParams.get("id");
 
 const getDetail = async (id) => {
   try {
-    const res = await fetch("https://animeapi-askiahnur1.b4a.run/anime/" + id);
+    const res = await fetch(ApiUrl + id);
     const detail = await res.json();
 
     return detail;

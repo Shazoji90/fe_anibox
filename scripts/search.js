@@ -1,5 +1,5 @@
 import { imageCard } from "./components/components.js";
-import { initialSetup } from "./index.js";
+import { ApiUrl, initialSetup } from "./index.js";
 
 initialSetup();
 
@@ -15,9 +15,7 @@ searchKeyword.innerHTML = q;
 
 async function getSearchResults() {
   try {
-    const res = await fetch(
-      `https://animeapi-askiahnur1.b4a.run/anime?title=${q}`
-    );
+    const res = await fetch(`${ApiUrl}?title=${q}`);
     const searchResult = await res.json();
 
     if (!searchResult.length) {

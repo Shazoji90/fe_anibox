@@ -1,13 +1,7 @@
 import { bannerCarouselItem, section } from "./components/components.js";
-import { initialSetup } from "./index.js";
+import { ApiUrl, initialSetup } from "./index.js";
 
 initialSetup();
-
-const API_URL = "https://animeapi-askiahnur1.b4a.run/anime";
-const TRENDING_URL = `${API_URL}?sort=trending`;
-const POPULAR_URL = `${API_URL}?sort=popularity`;
-const NEWEST_URL = `${API_URL}?sort=newest`;
-const TOP_URL = `${API_URL}?sort=top`;
 
 const setBannerCarouselItem = (banner) => {
   const bannerContainer = document.getElementById("banner-container");
@@ -58,11 +52,11 @@ const fetchData = async (url) => {
   } catch (error) {}
 };
 
-const trending = await fetchData(TRENDING_URL);
+const trending = await fetchData(`${ApiUrl}?sort=trending`);
 const banner = trending.slice(0, 5);
-const popular = await fetchData(POPULAR_URL);
-const newest = await fetchData(NEWEST_URL);
-const top = await fetchData(TOP_URL);
+const popular = await fetchData(`${ApiUrl}?sort=popularity`);
+const newest = await fetchData(`${ApiUrl}?sort=newest`);
+const top = await fetchData(`${ApiUrl}?sort=top`);
 
 setBannerCarouselItem(banner);
 
